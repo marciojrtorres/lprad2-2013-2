@@ -67,3 +67,23 @@ a = Aluno.where 'nome like ?', '%las%'
 # se for necessário destruir o banco
 
 rake db:drop
+
+# como adicionar colunas nas tabelas
+
+rails g migration add_escola_id_to_professores escola_id:integer
+
+# criar dados para teste
+# editar seeds.rb com Entidade.create ...
+# e rodar:
+rake db:seed
+
+# relacionando
+p = Professor.find 1
+e = Escola.find 1
+
+p.escola = e
+p.save
+
+# ou
+
+e.professores << p
