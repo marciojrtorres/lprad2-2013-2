@@ -1,0 +1,69 @@
+# criar um model Aluno, migration create_alunos.
+
+rails g model aluno nome
+
+# problema de pluralização (professor=>professors)
+# solução: editar o "inflections"
+# inflection.irregular 'professor', 'professores'
+
+rails g model professor nome
+
+rails g model escola nome
+
+# criar banco e tabelas deve-se migrar
+
+rake db:migrate
+
+# para saber o que falta migrar
+
+rake db:migrate:status
+
+# para consultar o banco diretamente
+
+rails dbconsole
+
+ex.:
+
+.schema alunos
+
+# objetivo é testar a partir do ActiveRecord
+# framework ORM do Rails (abstrai o banco)
+
+rails console  # rails c
+
+# usando uma variável
+a = Aluno.new
+a.nome = 'Luciano Silva'
+a.save
+a.id
+
+# inserindo direto
+Aluno.create :nome => 'Felipe Peres'
+
+# construindo
+a2 = Aluno.new :nome => 'Nicolas Dias'
+a2.save
+
+# consultando todos (métodos estáticos)
+todos = Aluno.all
+
+todos[0].nome
+
+for aluno in todos
+  p aluno.nome
+end
+
+# consultando um
+
+Aluno.find 1
+a = Aluno.find_by_nome 'Felipe Peres'
+
+p = Aluno.first
+u = Aluno.last
+
+# query
+a = Aluno.where 'nome like ?', '%las%'
+
+# se for necessário destruir o banco
+
+rake db:drop
