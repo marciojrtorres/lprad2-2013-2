@@ -1,9 +1,12 @@
 Crud::Application.routes.draw do
   
-  get "contatos/lista"
-
-  match "contatos/novo" => "contatos#novo",  :via => :get
+  match "contatos/lista" => "contatos#lista", :as => :lista_contatos
+  match "contatos/novo" => "contatos#novo",  :via => :get,
+                                             :as => :novo_contato
   match "contatos/novo" => "contatos#salva", :via => :post
+
+  match "contatos/exclui/:id" => "contatos#exclui", 
+                            :as => :exclui_contato
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

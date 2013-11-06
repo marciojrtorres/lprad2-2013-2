@@ -1,14 +1,31 @@
 <h1>Lista de Contatos</h1>
 
+<% if flash[:sucesso] %>
+    <div class="sucesso">
+        <%= flash[:sucesso] %>
+    </div>
+<% end %>
+
+<% if flash[:erro] %>
+    <div class="erro">
+        <%= flash[:erro] %>
+    </div>
+<% end %>
+
+<div>
+    <%= link_to "Novo Contato", novo_contato_path %>
+</div>
+
 <table>
     <thead>
-        <tr><th>Nome</th><th>Telefone</th></tr>
+        <tr><th>Nome</th><th>Telefone</th><th></th></tr>
     </thead>
     <tbody>
     <% for c in @contatos %>
         <tr>
             <td><%= c.nome %></td>
             <td><%= c.telefone %></td>
+            <td><%= link_to "Excluir", exclui_contato_path(c.id) %></td>
         </tr>
     <% end %>
     </tbody>

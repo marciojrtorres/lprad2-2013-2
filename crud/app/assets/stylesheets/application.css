@@ -11,3 +11,15 @@
  *= require_self
  *= require_tree .
  */
+
+ div.sucesso {
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #C2F56E;
+    font-size: 12pt;
+    color: #5F9900;
+    font-weight: bold; 
+    display: inline-block;
+    margin: 10px 0px;    
+ }
