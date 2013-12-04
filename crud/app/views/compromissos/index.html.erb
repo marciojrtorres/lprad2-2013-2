@@ -1,0 +1,32 @@
+<h1>Lista de Compromissos</h1>
+
+<% if flash[:notice] %>
+    <div class="notice">
+        <%= flash[:notice] %>
+    </div>
+<% end %>
+
+<div>
+    <%= link_to 'Novo Compromisso', new_compromisso_path %>
+</div>
+
+<table>
+    <tr>
+        <th>Descrição</th>
+        <th></th>
+    </tr>
+
+    <% for c in @compromissos %>
+
+    <tr>
+        <td>
+            <%= c.descricao %>
+        </td>
+        <td>
+            <%= link_to 'Editar', edit_compromisso_path(c) %>
+            <%= link_to 'Excluir', c, :method => :delete %>
+        </td>
+    </tr>
+
+    <% end %>
+</table>

@@ -1,0 +1,16 @@
+<h1>Editar Compromisso</h1>
+
+<%= form_for @compromisso do |f| %>
+
+    <%= f.label :descricao, 'Descrição:' %>
+    <%= f.text_field :descricao %>
+
+    <%= f.label :data, 'Data:' %>
+    <%= f.date_select :data %>
+
+    <%= f.label :hora, 'Hora:' %>
+    <%= f.time_select :hora %>
+
+    <%= f.submit 'Salvar' %>
+
+<% end %>

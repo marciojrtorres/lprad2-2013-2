@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131106213649) do
+ActiveRecord::Schema.define(:version => 20131120213754) do
+
+  create_table "compromissos", :force => true do |t|
+    t.string   "descricao"
+    t.date     "data"
+    t.time     "hora"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "contatos", :force => true do |t|
     t.string   "nome"

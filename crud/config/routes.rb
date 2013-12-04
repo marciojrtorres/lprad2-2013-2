@@ -8,6 +8,8 @@ Crud::Application.routes.draw do
   match "contatos/exclui/:id" => "contatos#exclui", 
                             :as => :exclui_contato
 
+  resources :compromissos
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,25 @@
+<% @titulo = 'Frases do Dia' %>
+
+<%= link_to 'Nova frase', nova_frase_path %>
+
+<div class="frases">
+<% for frase in @ultimas_5_frases %>
+    <div class="frase">
+        <div class="texto">
+            <%= frase.texto %>
+        </div>
+        <div class="autor">
+            Autor
+            <%= frase.autor unless frase.autor.empty? %>
+            <%= 'Desconhecido' if frase.autor.empty? %>
+        </div>
+        <div class="data">
+            Publicada em <%= frase.created_at %>
+        </div>
+        <div class="likes-and-dislikes">
+            <%= pluralize(frase.likes, 'pessoa') %> curtiram essa frase
+            <%= pluralize(frase.dislikes, 'pessoa') %> não curtiram essa frase
+        </div>
+    </div>
+<% end %>
+</div>

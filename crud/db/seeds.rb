@@ -18,3 +18,10 @@ Contato.create :nome => 'Bage',
 Contato.create :nome => 'Nicolas',
                :telefone => '77663321', :email => 'nicolas@linetech.com.br'
 
+Compromisso.create :descricao => 'Aplicar prova',
+                   :data => Date.new(2013, 12, 18)
+
+Compromisso.create :descricao => 'Preparar trabalho',
+                   :data => Date.new(2013, 12, 19),
+                   :hora => 16.hours
+

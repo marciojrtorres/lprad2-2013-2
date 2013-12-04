@@ -1,0 +1,25 @@
+----------------
+Restful
+----------------
+Princípio construído sobre o protocolo HTTP
+De que qualquer conteúdo na web é visto como
+um recurso (resource);
+
+URL:
+http://riogrande.ifrs.edu.br/cursos/tads/plano.pdf
+RESOURCE: plano.pdf
+
+Eu posso operar sobre os recursos (CRUD).
+CRUD: Create Read Update Delete
+DB: INSERT SELECT UPDATE DELETE
+SOFTWARE: save, store, find, ...
+
+HTTP disponibiliza VERBOS (ou métodos).
+RESTFUL -> Operar sobre os recursos usando os VERBOS HTTP
+
+
+
+
+
+
+
