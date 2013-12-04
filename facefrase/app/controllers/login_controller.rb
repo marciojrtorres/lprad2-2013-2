@@ -1,4 +1,7 @@
 # encoding: UTF-8
+
+require 'openssl'
+
 class LoginController < ApplicationController
   def index
   end
@@ -11,10 +14,13 @@ class LoginController < ApplicationController
 
   def login
     u = Usuario.find_by_email params[:email]
+
+    sha = OpenSSL::Digest::SHA256.new
+
     if u.nil?
         flash[:notice] = 'Usuário não existe'
         render :action => :index
-    elsif u.senha != params[:senha]
+    elsif u.senha != sha.hexdigest(u.salt + params[:senha])
         flash[:notice] = 'Senha não confere'
         render :action => :index
     else

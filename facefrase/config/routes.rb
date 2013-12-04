@@ -1,4 +1,7 @@
 Facefrase::Application.routes.draw do
+  resources :usuarios
+
+
   match "login" => "login#index", :via => :get,
         :as => :login
 

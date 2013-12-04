@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131127233235) do
+ActiveRecord::Schema.define(:version => 20131204231626) do
 
   create_table "frases", :force => true do |t|
     t.string   "texto"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20131127233235) do
     t.string   "senha"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "salt"
   end
 
 end
