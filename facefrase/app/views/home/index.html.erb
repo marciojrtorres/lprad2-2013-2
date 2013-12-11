@@ -3,23 +3,36 @@
 <%= link_to 'Nova frase', nova_frase_path %>
 
 <div class="frases">
-<% for frase in @ultimas_5_frases %>
+<% for @frase in @ultimas_5_frases %>
     <div class="frase">
         <div class="texto">
-            <%= frase.texto %>
+            <%= @frase.texto %>
         </div>
         <div class="autor">
             Autor
-            <%= frase.autor unless frase.autor.empty? %>
-            <%= 'Desconhecido' if frase.autor.empty? %>
+            <%= @frase.autor unless @frase.autor.empty? %>
+            <%= 'Desconhecido' if @frase.autor.empty? %>
         </div>
         <div class="data">
-            Publicada em <%= frase.created_at %>
+            Publicada em <%= @frase.created_at %>
         </div>
         <div class="likes-and-dislikes">
-            <%= pluralize(frase.likes, 'pessoa') %> curtiram essa frase
-            <%= pluralize(frase.dislikes, 'pessoa') %> não curtiram essa frase
+            <%= render "likes" %>
+            <%= pluralize(@frase.dislikes, 'pessoa') %> não curtiram essa frase
+        </div>
+        <div>
+            <%= link_to 'Like!', like_path(@frase),
+                :method => :post, :remote => true,
+                :class => "like-link", 
+                :id => "like-link-#{@frase.id}" %>
         </div>
     </div>
 <% end %>
 </div>
+
+<script>
+$('.like-link').bind('ajax:complete', function(evt, xhr) {
+    id = $(this).attr('id').split("-")[2];
+    $('#likes-' + id).html(xhr.responseText);
+});
+</script>

@@ -16,6 +16,9 @@ Facefrase::Application.routes.draw do
   match "frase/nova" => "frase#posta",
         :via => :post
 
+  match "frase/like/:id" => "frase#like",
+        :via => :post, :as => :like
+
   root :to => 'home#index'
   
   # The priority is based upon order of creation:

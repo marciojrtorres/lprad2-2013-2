@@ -1,0 +1,6 @@
+<span id="likes-<%=@frase.id%>">
+    <%= pluralize(@frase.likes, 'pessoa') %>
+    <%= "curtiu" if @frase.likes == 1 %>
+    <%= "curtiram" if @frase.likes != 1 %>
+    essa frase
+</span>
